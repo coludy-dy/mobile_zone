@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+    <div class="navbar section-content">
+        <a href="index.html" class="nav-logo">
+            <h2 class="logo-text"><i class="fa-solid fa-mobile-retro"></i>Mobile Zone</h2>
+        </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="product.html" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="abouts.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="contacts.html" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+                    </li>
+                </ul>
+                <div class="nav-login">
+                    <a href="login.html" class="nav-link nav-login-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </div>
+    </div>
+   </header>
+   <section class="login">
+        <div class="wrap">
+            <form action="">
+                <h1>Log in</h1>
+                <div class="inputting">
+                    <input type="text" placeholder="Username" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="inputting">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fa-solid fa-eye" id="togglePassword"></i>
+                </div>
+
+                <div class="remember-forget">
+                    <input type="checkbox"><p>Remember me</p>
+                    <a href="#">Forget Password</a>
+                </div>
+                <button type="submit" class="btn">Log In</button>
+
+                <div class="register-link">
+                <p>Don't have an account?<a href="register.html">Register</a> </p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', () => {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+        togglePassword.classList.toggle('fa-eye-slash');
+    });
+</script>
+</body>
+</html>

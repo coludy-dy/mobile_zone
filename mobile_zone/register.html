@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Register | Mobile Zone</title>
+</head>
+<body>
+
+  <header>
+    <div class="navbar section-content">
+      <a href="index.html" class="nav-logo">
+        <h2 class="logo-text"><i class="fa-solid fa-mobile-retro"></i>Mobile Zone</h2>
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="product.html" class="nav-link">Products</a></li>
+        <li class="nav-item"><a href="abouts.html" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="contacts.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-item"><a href="#" class="nav-link nav-cart"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+      </ul>
+      <div class="nav-login">
+        <a href="login.html" class="nav-link nav-login-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="register-container">
+    <form action="register-submit.php" method="POST" novalidate>
+      <div class="form-group">
+        <label for="fullname">User Name</label>
+        <input type="text" id="fullname" name="fullname" required minlength="2" maxlength="50" pattern="[A-Za-z\s]+" title="Only letters allowed" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required maxlength="100" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{7,11}" title="Enter 7 to 15 digits" placeholder="e.g. 09123456789" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          required 
+          minlength="8" 
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+          title="Must contain at least 1 uppercase, 1 lowercase, 1 number, and be 8+ characters"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" required />
+      </div>
+
+      <button type="submit" class="btn-submit">Create Account</button>
+
+      <div class="login-link">
+        Already have an account? <a href="login.html">Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Optional: match passwords before submit
+    const form = document.querySelector('form');
+    const password = document.getElementById('password');
+    const confirm = document.getElementById('confirm');
+
+    form.addEventListener('submit', function(e) {
+      if (password.value !== confirm.value) {
+        e.preventDefault();
+        alert('Passwords do not match!');
+        confirm.focus();
+      }
+    });
+  </script>
+
+</body>
+</html>

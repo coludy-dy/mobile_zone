@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings | Mobile Zone</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2 class="brand"><i class="fa-solid fa-mobile-retro" style="margin-right: 8px;"></i>Mobile Zone</h2>
+      <ul class="sidebar-menu">
+        <li><a href="admin.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+        <li><a href="products.html" class="active"><i class="fas fa-box"></i> Products</a></li>
+        <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+        <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+        <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="admin-header">
+        <h1>Settings</h1>
+        <div class="profile">
+          <i class="fas fa-user-circle"></i> Admin User
+        </div>
+      </header>
+ <!---- Product filtering----->
+      <section class="settings">
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label for="filter-name">Item Name</label>
+                <input type="text" id="filter-name" placeholder="Search by name">
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-price">Price</label>
+                <input type="number" id="filter-price" placeholder="Search by price">
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-battery">Battery</label>
+                <input type="text" id="filter-battery" placeholder="e.g. 5000mAh">
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-storage">storage</label>
+                <input type="text" id="filter-storage" placeholder="e.g.256GB/512Gb">
+            </div>
+
+            <div class="filter-actions">
+                <button class="btn-filter" onclick="searchFilter()">Search</button>
+                <button class="btn-clear" onclick="clearFilter()">Clear</button>
+            </div>
+        </div>
+      </section>
+       <!-----Product Creating Button------>
+        <div class="create-product-btn-wrapper">
+            <button class="add-btn" onclick="window.location.href='create-products.html'">Create Products<i class="fas fa-plus"></i>
+            </button>
+        </div>
+
+
+      <!-----Product Database------>
+      <div class="product-table-container">
+            <table class="product-table">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Storage</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>IPhone 16 Pro</td>
+                    <td>25</td>
+                    <td>$999</td>
+                    <td>128GB</td>
+                    <td class="actions">
+                    <button class="action-btn view"  onclick="openModal()"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pen"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <!-- You can add more rows here -->
+                 <tr>
+                    <td>2</td>
+                    <td>Vivo S30</td>
+                    <td>20</td>
+                    <td>$989</td>
+                    <td>256GB</td>
+                    <td class="actions">
+                    <button class="action-btn view" onclick="openModal()"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pen"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <!-- You can add more rows here -->
+                 <tr>
+                    <td>3</td>
+                    <td>Samsung 14 Ultra</td>
+                    <td>38</td>
+                    <td>$999</td>
+                    <td>512GB</td>
+                    <td class="actions">
+                    <button class="action-btn view" onclick="openModal()"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pen"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <!-- You can add more rows here -->
+                 <tr>
+                    <td>4</td>
+                    <td>Xiamoi 14T </td>
+                    <td>40</td>
+                    <td>$744</td>
+                    <td>128GB</td>
+                    <td class="actions">
+                    <button class="action-btn view" onclick="openModal()"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pen"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <!-- You can add more rows here -->
+                 <tr>
+                    <td>5</td>
+                    <td>Oppo</td>
+                    <td>25</td>
+                    <td>$655</td>
+                    <td>256GB</td>
+                    <td class="actions">
+                    <button class="action-btn view" onclick="openModal()"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pen"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <!-- You can add more rows here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+  </div>
+  <!---------when click the view button------->
+    <div id="viewModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Product Details</h2>
+        <p><strong>Item Name:</strong> iPhone 16 Pro</p>
+        <p><strong>Quantity:</strong> 25</p>
+        <p><strong>Price:</strong> $999</p>
+        <p><strong>Battery:</strong> 5000mAh</p>
+        <p><strong>Camera:</strong> 50MP Dual</p>
+        <!-- Add more details as needed -->
+      </div>
+    </div>
+
+  <!---------Java Script------->
+        <script>
+  function searchFilter() {
+    alert("Search triggered. (Implement logic here.)");
+  }
+
+  function clearFilter() {
+    document.getElementById('filter-name').value = '';
+    document.getElementById('filter-price').value = '';
+    document.getElementById('filter-battery').value = '';
+    document.getElementById('filter-storage').value = '';
+  }
+</script>
+<script>
+  function openModal() {
+    document.getElementById("viewModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("viewModal").style.display = "none";
+  }
+
+  // Optional: close on outside click
+  window.onclick = function(event) {
+    const modal = document.getElementById("viewModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+</body>
+</html>
